@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -21,10 +20,6 @@ class UserController extends Controller
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function coba()
-    {
-        return "coba";
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -43,22 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $this->validate($request, [
-            "name" => "required|max:100",
-            "email" => "required|max:100",
-            "ttl" => "required|max:100|nullable",
-            "gender" => "required|max:100|nullable",
-            "alamat" => "required|max:100|nullable",
-            "kel" => "required|max:100|nullable",
-            "kec" => "required|max:100|nullable",
-            "kab" => "required|max:100|nullable",
-            "prov" => "required|max:100|nullable",
-            "phone" => "required|max:15|nullable",
-            "password" => "required",
-            "user_image" => "required"
-        ]);
-
-        User::create($validated);
+        User::create($request->all());
 
         return back()->with('message', 'item stored successfully');
     }
@@ -94,22 +74,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $validated = $this->validate($request, [
-            "name" => "required|max:100",
-            "email" => "required|max:100",
-            "ttl" => "required|max:100|nullable",
-            "gender" => "required|max:100|nullable",
-            "alamat" => "required|max:100|nullable",
-            "kel" => "required|max:100|nullable",
-            "kec" => "required|max:100|nullable",
-            "kab" => "required|max:100|nullable",
-            "prov" => "required|max:100|nullable",
-            "phone" => "required|max:15|nullable",
-            "password" => "required",
-            "user_image" => "required"
-        ]);
-
-        $user->update($validated);
+        $user->update($request->all());
 
         return back()->with('message', 'item updated successfully');
     }

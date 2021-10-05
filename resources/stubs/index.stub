@@ -9,6 +9,7 @@
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="{{ route('{{crudName}}.create') }}" title="Create a data"> <i class="fas fa-plus-circle"></i>
+            Tambah
             </a>
         </div>
     </div>
@@ -28,20 +29,20 @@
     </tr>
     @foreach (${{crudName}}s as $data)
     <tr>
-        <td>{{ $data->iteration }}</td>
+        <td>{{ $loop->iteration }}</td>
         {{listBody}}
         <td>
-            <form action="{{ route('{{crudName}}.destroy', $data->{{id}}) }}" method="POST">
-                <a href="{{ route('{{crudName}}.show', $data->{{id}}) }}" title="show">
-                    <i class="fas fa-eye text-success  fa-lg"></i>
-                </a>
-                <a href="{{ route('{{crudName}}.edit', $data->{{id}}) }}">
-                    <i class="fas fa-edit  fa-lg"></i>
-                </a>
+            <a href="{{ route('{{crudName}}.show', $data) }}" title="show">
+                <i class="fas fa-eye text-success  fa-lg"></i>Show
+            </a>
+            <a href="{{ route('{{crudName}}.edit', $data) }}">
+                <i class="fas fa-edit  fa-lg"></i>Edit
+            </a>
+            <form action="{{ route('{{crudName}}.destroy', $data) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                    <i class="fas fa-trash fa-lg text-danger"></i>
+                    <i class="fas fa-trash fa-lg text-danger"></i>Delete
                 </button>
             </form>
         </td>

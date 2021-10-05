@@ -41,62 +41,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>ttl:</strong>
-                    <input type="text" name="ttl" class="form-control" placeholder="ttl">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>password:</strong>
                     <input type="text" name="password" class="form-control" placeholder="password">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>user_image:</strong>
-                    <input type="text" name="user_image" class="form-control" placeholder="user_image">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>gender:</strong>
-                    <input type="text" name="gender" class="form-control" placeholder="gender">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>alamat:</strong>
-                    <input type="text" name="alamat" class="form-control" placeholder="alamat">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>kel:</strong>
-                    <input type="text" name="kel" class="form-control" placeholder="kel">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>kec:</strong>
-                    <input type="text" name="kec" class="form-control" placeholder="kec">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>kab:</strong>
-                    <input type="text" name="kab" class="form-control" placeholder="kab">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>prov:</strong>
-                    <input type="text" name="prov" class="form-control" placeholder="prov">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>phone:</strong>
-                    <input type="text" name="phone" class="form-control" placeholder="phone">
                 </div>
             </div>
             

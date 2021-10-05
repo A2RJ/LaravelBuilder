@@ -12,7 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $primaryKey = 'id_user';
     /**
      * The attributes that are mass assignable.
      *
@@ -21,17 +20,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'ttl',
         'password',
-        'user_image',
-        'gender',
-        'alamat',
-        'kel',
-        'kec',
-        'kab',
-        'prov',
-        'phone'
     ];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -50,12 +41,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * Get the managements for the blog post.
-     */
-    public function managements()
-    {
-        return $this->hasMany(Management::class);
-    }
 }
