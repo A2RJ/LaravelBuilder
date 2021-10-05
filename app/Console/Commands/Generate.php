@@ -2,9 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Dosen;
 use App\Models\User;
+use Faker\Provider\ar_SA\Color;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
+use mysqli;
 
 class Generate extends Command
 {
@@ -13,7 +16,7 @@ class Generate extends Command
      *
      * @var string
      */
-    protected $signature = 'generate:crud';
+    protected $signature = 'generate:crud {name} {id}';
     // protected $signature = 'generate:crud {name} {id}';
 
     /**
@@ -40,25 +43,40 @@ class Generate extends Command
      */
     public function handle()
     {
-        // $id = $this->argument('id');
-        // $name = $this->argument('name');
+        $id = $this->argument('id');
+        $name = ucfirst($this->argument('name'));
+        $mysqli = new mysqli(env('DB_HOST'), env('DB_USERNAME'), env('DB_PASSWORD'), env('DB_DATABASE'));
 
-        // $eloq = require './env.php';
-        // dd($eloq['table']);
-        // foreach ($eloq as $key => $value) {
-        //     print_r($value) . "\n";
-        // }
-        // die;
+        /* check connection */
+        if (mysqli_connect_error()) {
+            printf(mysqli_connect_error());
+            exit();
+        }
 
-        $id = 'id_user';
-        $name = 'user';
+        $query = "SHOW COLUMNS FROM " . $name . 's';
+        $result = $mysqli->query($query);
 
-        $user = new User();
-        $user = $user->getFillable();
-        $this->index($user, $name, $id);
-        $this->create($user, $name);
-        $this->edit($user, $name, $id);
-        $this->show($user, $name, $id);
+        if (empty($result)) {
+            echo "Table tidak ditemukan";
+        } else {
+            $fields = '';
+            while ($rows = $result->fetch_array()) {
+                $fields .= '"' . $rows[0] . '", ';
+                $row[] = $rows[0];
+            }
+
+            echo "\033[31mPlease create controller first\n";
+            $this->model($fields, $name);
+            echo "\033[32mModel created...100%\n";
+            $this->index($row, $name, $id);
+            echo "\033[32mIndex created...100%\n";
+            $this->create($row, $name);
+            echo "\033[32mCreate created...100%\n";
+            $this->edit($row, $name, $id);
+            echo "\033[32mEdit created...100%\n";
+            $this->show($row, $name, $id);
+            echo "\033[32mShow created...100%\n";
+        }
     }
 
     protected function getStub($type)
@@ -66,16 +84,26 @@ class Generate extends Command
         return file_get_contents(resource_path("stubs/$type.stub"));
     }
 
-    protected function index($user, $name, $id)
+    protected function model($fields, $name)
+    {
+        $template = str_replace(
+            ['{{crudName}}', '{{rows}}'],
+            [$name, $fields],
+            $this->getStub('model')
+        );
+        file_put_contents(app_path("/Models/{$name}.php"), $template);
+    }
+
+    protected function index($row, $name, $id)
     {
         $listHeader = '';
         $listBody = '';
-        
-        foreach ($user as $value) {
+
+        foreach ($row as $value) {
             $listHeader .= '<th>' . $value . '</th>';
             $listBody .= '<th>{{$data->' . $value . '}}</th>';
         }
-        
+
         $template = str_replace(
             ['{{crudName}}', '{{id}}', '{{listHeader}}', '{{listBody}}'],
             [$name, $id, $listHeader, $listBody],
@@ -84,10 +112,10 @@ class Generate extends Command
         file_put_contents(app_path("../resources/views/{$name}s/index.blade.php"), $template);
     }
 
-    protected function create($user, $name)
+    protected function create($row, $name)
     {
         $listInput = '';
-        foreach ($user as $value) {
+        foreach ($row as $value) {
             $listInput .= '<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>' . $value . ':</strong>
@@ -104,10 +132,10 @@ class Generate extends Command
         file_put_contents(app_path("../resources/views/{$name}s/create.blade.php"), $template);
     }
 
-    protected function edit($user, $name, $id)
+    protected function edit($row, $name, $id)
     {
         $listInput = '';
-        foreach ($user as $value) {
+        foreach ($row as $value) {
             $listInput .= '<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>' . $value . ':</strong>
@@ -125,10 +153,10 @@ class Generate extends Command
         file_put_contents(app_path("../resources/views/{$name}s/edit.blade.php"), $template);
     }
 
-    protected function show($user, $name, $id)
+    protected function show($row, $name, $id)
     {
         $showData = '';
-        foreach ($user as $value) {
+        foreach ($row as $value) {
             $showData .= '<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Date Created:</strong>
