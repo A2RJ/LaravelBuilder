@@ -2,9 +2,10 @@
 - copy generated file to fix folder app
 
 # Create View
-- create controller from model fillable (composer require mehradsadeghi/laravel-crud-generator - php artisan make:crud NameController --model=Name --validation)
+- Create tables
 - create view template (composer require sven/artisan-view --dev - php artisan make:view Name --resource)
 - create auto generate view (php artisan generate:crud table id_table)
+- create controller from model fillable (composer require mehradsadeghi/laravel-crud-generator - php artisan make:crud NameController --model=Name --validation)
 
 # Database
 - create migration from sql (composer require --dev "kitloong/laravel-migrations-generator"

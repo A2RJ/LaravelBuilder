@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '{{crudName}}')
+@section('title', 'Users')
 
 @section('content')
 <div class="row">
@@ -8,7 +8,7 @@
             <h2>Laravel 8 CRUD </h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('{{crudName}}.create') }}" title="Create a data"> <i class="fas fa-plus-circle"></i>
+            <a class="btn btn-success" href="{{ route('Users.create') }}" title="Create a data"> <i class="fas fa-plus-circle"></i>
             Tambah
             </a>
         </div>
@@ -33,17 +33,17 @@
             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
         >
             <th class="px-4 py-3">#</th>
-            {{listHeader}}
+            <th>id</th><th>name</th><th>email</th><th>fakultas_id</th><th>dekan_id</th><th>prodi_id</th><th>kejur_id</th><th>email_verified_at</th><th>password</th><th>remember_token</th><th>created_at</th><th>updated_at</th>
             <th class="px-4 py-3">Actions</th>
         </tr>
         </thead>
         <tbody
         class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
         >
-        @foreach (${{crudName}} as $data)
+        @foreach ($users as $data)
         <tr class="text-gray-700 dark:text-gray-400">
             <td>{{ $loop->iteration }}</td>
-            {{listBody}}
+            <td>{{$data->id}}</td><td>{{$data->name}}</td><td>{{$data->email}}</td><td>{{$data->fakultas_id}}</td><td>{{$data->dekan_id}}</td><td>{{$data->prodi_id}}</td><td>{{$data->kejur_id}}</td><td>{{$data->email_verified_at}}</td><td>{{$data->password}}</td><td>{{$data->remember_token}}</td><td>{{$data->created_at}}</td><td>{{$data->updated_at}}</td>
             <td class="px-4 py-3">
             <div class="flex items-center space-x-4 text-sm">
                 <button
@@ -78,13 +78,13 @@
                     ></path>
                 </svg>
                 </button>
-                <a href="{{ route('{{crudName}}.show', $data) }}" title="show">
+                <a href="{{ route('Users.show', $data) }}" title="show">
                 <i class="fas fa-eye text-success  fa-lg"></i>Show
             </a>
-            <a href="{{ route('{{crudName}}.edit', $data) }}">
+            <a href="{{ route('Users.edit', $data) }}">
                 <i class="fas fa-edit  fa-lg"></i>Edit
             </a>
-            <form action="{{ route('{{crudName}}.destroy', $data) }}" method="POST">
+            <form action="{{ route('Users.destroy', $data) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" title="delete" style="border: none; background-color:transparent;">

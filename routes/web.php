@@ -1,13 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
-use App\Models\User;
-use App\Http\Controllers\ManagementController;
-use App\Http\Controllers\UserController;
-use App\Models\api\Profile;
-use App\Sister\Sister;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +18,7 @@ Route::get('/', function () {
     return view('tailwind');
 });
 
+Route::resource('Users', UsersController::class);
 // // Route::middleware(['notauth'])->group(function () {
 // Route::prefix('/auth')->group(function () {
 //     Route::get('/redirect', function () {
@@ -50,4 +45,3 @@ Route::get('/', function () {
 //     });
 // });
 // });
-

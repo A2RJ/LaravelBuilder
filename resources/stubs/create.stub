@@ -1,4 +1,4 @@
-@extends('template.index')
+@extends('layouts.app')
 @section('title', '{{crudName}}')
 
 @section('content')
@@ -23,7 +23,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('{{crudName}}.store') }}" method="POST" >
+    <form action="{{ route('{{crudName}}.store') }}" method="POST" class="w-full max-w-lg">
         @csrf
 
         <div class="row">

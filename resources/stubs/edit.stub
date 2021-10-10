@@ -1,4 +1,4 @@
-@extends('template.index')
+@extends('layouts.app')
 @section('title', '{{crudName}}')
 
 @section('content')
@@ -24,7 +24,7 @@
         </div>
     @endif
 
-    <form action="{{ route('{{crudName}}.update', ${{crudName}}->{{id}}) }}" method="POST">
+    <form action="{{ route('{{crudName}}.update', ${{crudName}}) }}" method="POST">
         @csrf
         @method('PUT')
 
