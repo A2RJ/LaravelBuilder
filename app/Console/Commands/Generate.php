@@ -101,8 +101,8 @@ class Generate extends Command
         }
 
         $template = str_replace(
-            ['{{crudName}}', '{{id}}', '{{listHeader}}', '{{listBody}}'],
-            [$name, $id, $listHeader, $listBody],
+            ['{{crudName}}', '{{foreach}}', '{{id}}', '{{listHeader}}', '{{listBody}}'],
+            [$name, strtolower($name), $id, $listHeader, $listBody],
             $this->getStub('index')
         );
         file_put_contents(app_path("../resources/views/{$name}/index.blade.php"), $template);
@@ -142,15 +142,15 @@ class Generate extends Command
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
               ' . $value . '
               </label>
-              <input name="' . $value . '" id="' . $value . '" type="text" placeholder="{{ $' . $name . '->' . $value . ' }}" value="{{ $' . $name . '->' . $value . ' }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+              <input name="' . $value . '" id="' . $value . '" type="text" placeholder="{{ $' . strtolower($name) . '->' . $value . ' }}" value="{{ $' . strtolower($name) . '->' . $value . ' }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
               <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
             </div>
           </div>
             ';
         }
         $template = str_replace(
-            ['{{crudName}}', '{{id}}', '{{listInput}}'],
-            [$name, $id, $listInput],
+            ['{{crudName}}', '{{foreach}}', '{{id}}', '{{listInput}}'],
+            [$name, strtolower($name), $id, $listInput],
             $this->getStub('edit')
         );
         file_put_contents(app_path("../resources/views/{$name}/edit.blade.php"), $template);
@@ -162,15 +162,15 @@ class Generate extends Command
         foreach ($row as $value) {
             $showData .= '<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Date Created:</strong>
-                    {{ $' . $name . '->' . $value . ' }}
+                    <strong>' . $value . ':</strong>
+                    {{ $' . strtolower($name) . '->' . $value . ' }}
                 </div>
             </div>
             ';
         }
         $template = str_replace(
-            ['{{crudName}}', '{{id}}', '{{showData}}'],
-            [$name, $id, $showData],
+            ['{{crudName}}', '{{foreach}}', '{{id}}', '{{showData}}'],
+            [$name, strtolower($name), $id, $showData],
             $this->getStub('show')
         );
         file_put_contents(app_path("../resources/views/{$name}/show.blade.php"), $template);

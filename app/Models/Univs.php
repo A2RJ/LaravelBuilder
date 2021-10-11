@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model
+class Univs extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Users extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_univ';
 
-    protected $fillable =  [ "name", "email", "fakultas_id", "dekan_id", "prodi_id", "kejur_id", "password"];
+    protected $fillable =  [ "jenis_perguruan_tinggi", "nama_univ", "nama_rektor" ];
 }

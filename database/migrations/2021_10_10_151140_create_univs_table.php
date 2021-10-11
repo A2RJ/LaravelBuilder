@@ -14,10 +14,11 @@ class CreateUnivsTable extends Migration
     public function up()
     {
         Schema::create('univs', function (Blueprint $table) {
-            $table->integer('id', true);
+            $table->integer('id_univ', true);
             $table->enum('jenis_perguruan_tinggi', ['universitas', 'institut', 'sekolah tinggi', 'politeknik']);
             $table->string('nama_univ');
             $table->string('nama_rektor');
+            $table->timestamps();
         });
     }
 

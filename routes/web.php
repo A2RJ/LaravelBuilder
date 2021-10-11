@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\DedicationsController;
+use App\Http\Controllers\EducationsController;
+use App\Http\Controllers\LecturersController;
+use App\Http\Controllers\StudiesController;
+use App\Http\Controllers\UnivsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +23,11 @@ Route::get('/', function () {
     return view('tailwind');
 });
 
+Route::resource('Dedications', DedicationsController::class);
+Route::resource('Educations', EducationsController::class);
+Route::resource('Lecturers', LecturersController::class);
+Route::resource('Studies', StudiesController::class);
+Route::resource('Univs', UnivsController::class);
 Route::resource('Users', UsersController::class);
 // // Route::middleware(['notauth'])->group(function () {
 // Route::prefix('/auth')->group(function () {

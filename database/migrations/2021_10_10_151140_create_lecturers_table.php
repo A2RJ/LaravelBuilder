@@ -43,6 +43,7 @@ class CreateLecturersTable extends Migration
             $table->string('semester', 10);
             $table->string('email');
             $table->string('ktp');
+            $table->timestamps();
         });
     }
 

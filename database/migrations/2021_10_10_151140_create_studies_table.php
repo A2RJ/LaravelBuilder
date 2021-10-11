@@ -27,7 +27,8 @@ class CreateStudiesTable extends Migration
             $table->text('bukti_dokumen2');
             $table->text('bukti_dokumen3');
             $table->integer('sks_bukti_dokumen');
-            $table->integer('rekomendasi');
+            $table->string('rekomendasi', 100);
+            $table->timestamps();
         });
     }
 

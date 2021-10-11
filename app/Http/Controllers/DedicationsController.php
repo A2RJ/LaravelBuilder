@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\Dedications;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class DedicationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = Users::all();
+        $dedications = Dedications::all();
 
-        return view('users.index', compact('users'));
+        return view('dedications.index', compact('dedications'));
     }
 
     /**
@@ -26,7 +26,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('dedications.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        Users::create($request->all());
+        Dedications::create($request->all());
 
         return back()->with('message', 'item stored successfully');
     }
@@ -45,37 +45,37 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Dedications $dedications
      * @return \Illuminate\Http\Response
      */
-    public function show($users)
+    public function show($dedications)
     {
-        $users = Users::find($users);
-        return view('users.show', compact('users'));
+        $dedications = Dedications::find($dedications);
+        return view('dedications.show', compact('dedications'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Dedications $dedications
      * @return \Illuminate\Http\Response
      */
-    public function edit($users)
+    public function edit($dedications)
     {
-        $users = Users::find($users);
-        return view('users.edit', compact('users'));
+        $dedications = Dedications::find($dedications);
+        return view('dedications.edit', compact('dedications'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Dedications $dedications
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $users)
+    public function update(Request $request, $dedications)
     {
-        Users::find($users)->update($request->all());
+        Dedications::find($dedications)->update($request->all());
 
         return back()->with('message', 'item updated successfully');
     }
@@ -83,12 +83,12 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Dedications $dedications
      * @return \Illuminate\Http\Response
      */
-    public function destroy($users)
+    public function destroy($dedications)
     {
-        Users::find($users)->delete();
+        Dedications::find($dedications)->delete();
 
         return back()->with('message', 'item deleted successfully');
     }

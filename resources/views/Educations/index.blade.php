@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title', 'Users')
+@section('title', 'Educations')
 
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('Users.create') }}" title="Create a data"> <i class="fas fa-plus-circle"></i>
+            <a class="btn btn-success" href="{{ route('Educations.create') }}" title="Create a data"> <i class="fas fa-plus-circle"></i>
                 Tambah
             </a>
         </div>
@@ -25,27 +25,25 @@
             <thead>
                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                     <th class="px-4 py-3">#</th>
-                    <th>name</th>
-                    <th>email</th>
+                    <th>jenis_kegiatan</th>
                     <th class="px-4 py-3">Actions</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                @foreach ($users as $data)
+                @foreach ($educations as $data)
                 <tr class="text-gray-700 dark:text-gray-400">
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{$data->name}}</td>
-                    <td>{{$data->email}}</td>
+                    <td>{{$data->jenis_kegiatan}}</td>
                     <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
 
-                            <a href="{{ route('Users.show', $data->id) }}" title="show">
+                            <a href="{{ route('Educations.show', $data->id_education) }}" title="show">
                                 <i class="fas fa-eye text-success  fa-lg"></i>Show
                             </a>
-                            <a href="{{ route('Users.edit', $data->id) }}">
+                            <a href="{{ route('Educations.edit', $data->id_education) }}">
                                 <i class="fas fa-edit  fa-lg"></i>Edit
                             </a>
-                            <form action="{{ route('Users.destroy', $data->id) }}" method="POST">
+                            <form action="{{ route('Educations.destroy', $data->id_education) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" title="delete" style="border: none; background-color:transparent;">

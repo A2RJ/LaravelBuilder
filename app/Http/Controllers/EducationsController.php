@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\Educations;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class EducationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = Users::all();
+        $educations = Educations::all();
 
-        return view('users.index', compact('users'));
+        return view('educations.index', compact('educations'));
     }
 
     /**
@@ -26,7 +26,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('educations.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        Users::create($request->all());
+        Educations::create($request->all());
 
         return back()->with('message', 'item stored successfully');
     }
@@ -45,37 +45,37 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Educations $educations
      * @return \Illuminate\Http\Response
      */
-    public function show($users)
+    public function show($educations)
     {
-        $users = Users::find($users);
-        return view('users.show', compact('users'));
+        $educations = Educations::find($educations);
+        return view('educations.show', compact('educations'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Educations $educations
      * @return \Illuminate\Http\Response
      */
-    public function edit($users)
+    public function edit($educations)
     {
-        $users = Users::find($users);
-        return view('users.edit', compact('users'));
+        $educations = Educations::find($educations);
+        return view('educations.edit', compact('educations'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Educations $educations
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $users)
+    public function update(Request $request, $educations)
     {
-        Users::find($users)->update($request->all());
+        Educations::find($educations)->update($request->all());
 
         return back()->with('message', 'item updated successfully');
     }
@@ -83,12 +83,12 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Educations $educations
      * @return \Illuminate\Http\Response
      */
-    public function destroy($users)
+    public function destroy($educations)
     {
-        Users::find($users)->delete();
+        Educations::find($educations)->delete();
 
         return back()->with('message', 'item deleted successfully');
     }

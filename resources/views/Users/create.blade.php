@@ -31,16 +31,6 @@
             <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              id
-              </label>
-              <input name="id" id="id" type="text" placeholder="id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
-            </div>
-          </div>
-            
-            <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
               name
               </label>
               <input name="name" id="name" type="text" placeholder="name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -101,49 +91,9 @@
             <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              email_verified_at
-              </label>
-              <input name="email_verified_at" id="email_verified_at" type="text" placeholder="email_verified_at" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
-            </div>
-          </div>
-            
-            <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
               password
               </label>
               <input name="password" id="password" type="text" placeholder="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
-            </div>
-          </div>
-            
-            <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              remember_token
-              </label>
-              <input name="remember_token" id="remember_token" type="text" placeholder="remember_token" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
-            </div>
-          </div>
-            
-            <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              created_at
-              </label>
-              <input name="created_at" id="created_at" type="text" placeholder="created_at" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
-            </div>
-          </div>
-            
-            <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              updated_at
-              </label>
-              <input name="updated_at" id="updated_at" type="text" placeholder="updated_at" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
               <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
             </div>
           </div>

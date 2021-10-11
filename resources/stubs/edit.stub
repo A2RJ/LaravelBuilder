@@ -8,7 +8,7 @@
                 <h2>Edit Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('{{crudName}}.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+                <a class="btn btn-primary" href="{{ route('{{crudName}}.index') }}" title="Go back">Go back <i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
         </div>
     @endif
 
-    <form action="{{ route('{{crudName}}.update', ${{crudName}}) }}" method="POST">
+    <form action="{{ route('{{crudName}}.update', ${{foreach}}) }}" method="POST">
         @csrf
         @method('PUT')
 

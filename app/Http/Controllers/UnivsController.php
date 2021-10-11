@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\Univs;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class UnivsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = Users::all();
+        $univs = Univs::all();
 
-        return view('users.index', compact('users'));
+        return view('univs.index', compact('univs'));
     }
 
     /**
@@ -26,7 +26,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('univs.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        Users::create($request->all());
+        Univs::create($request->all());
 
         return back()->with('message', 'item stored successfully');
     }
@@ -45,37 +45,37 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Univs $univs
      * @return \Illuminate\Http\Response
      */
-    public function show($users)
+    public function show($univs)
     {
-        $users = Users::find($users);
-        return view('users.show', compact('users'));
+        $univs = Univs::find($univs);
+        return view('univs.show', compact('univs'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Univs $univs
      * @return \Illuminate\Http\Response
      */
-    public function edit($users)
+    public function edit($univs)
     {
-        $users = Users::find($users);
-        return view('users.edit', compact('users'));
+        $univs = Univs::find($univs);
+        return view('univs.edit', compact('univs'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Univs $univs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $users)
+    public function update(Request $request, $univs)
     {
-        Users::find($users)->update($request->all());
+        Univs::find($univs)->update($request->all());
 
         return back()->with('message', 'item updated successfully');
     }
@@ -83,12 +83,12 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Users $users
+     * @param  \App\Models\Univs $univs
      * @return \Illuminate\Http\Response
      */
-    public function destroy($users)
+    public function destroy($univs)
     {
-        Users::find($users)->delete();
+        Univs::find($univs)->delete();
 
         return back()->with('message', 'item deleted successfully');
     }
